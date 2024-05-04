@@ -1,0 +1,31 @@
+<Project>
+
+  <!-- Authorship -->
+  <PropertyGroup>
+    <Product>Avvr - kAPPUSTA</Product>
+    <Copyright>Avvr, 2024–$([System.DateTime]::Today.Year)</Copyright>
+  </PropertyGroup>
+
+  <!-- Build -->
+  <PropertyGroup>
+    <Version>0.0.1</Version>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>Avvr.Kappusta.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>$(MSBuildProjectName)</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="$(AssemblyName).Tests.Unit"/>
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
+  </ItemGroup>
+
+</Project>
