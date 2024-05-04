@@ -13,8 +13,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <LangVersion>latest</LangVersion>
-    <AssemblyName>Avvr.Kappusta.$(MSBuildProjectName)</AssemblyName>
-    <RootNamespace>$(MSBuildProjectName)</RootNamespace>
+    <AssemblyName>$(AssemblyName)</AssemblyName>
+    <RootNamespace>Avvr.Kappusta.$(MSBuildProjectName)</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>
