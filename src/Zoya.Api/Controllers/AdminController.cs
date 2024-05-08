@@ -2,11 +2,10 @@
 
 namespace Avvr.Kappusta.Zoya.Api.Controllers;
 
-public class AdminController : Controller
+[Route("[controller]")]
+[ApiController]
+public class AdminController : ControllerBase
 {
-    // GET
-    public IActionResult Index()
-    {
-        return View();
-    }
+    [HttpPost]
+    public IActionResult CreateAccount() => Created();
 }
