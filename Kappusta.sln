@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Zoya", "Zoya", "{8171EB24-4326-4F97-BDDB-F69DCA7FBCB3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zoya.Core", "src\Zoya.Core\Zoya.Core.csproj", "{FD61A14F-8B3B-412E-8260-A259A3A22E1F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zoya.Application", "src\Zoya.Application\Zoya.Application.csproj", "{42E7BC67-EC34-48DA-AAFF-18545EFEF5D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zoya.Infrastructure.Persistence", "src\Zoya.Infrastructure.Persistence\Zoya.Infrastructure.Persistence.csproj", "{FF2A6BBF-ADB2-40DF-8B4B-AC60BDDCCFB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoya.Web", "src\Zoya.Web\Zoya.Web.csproj", "{3A11995C-0FA4-47F0-811E-9EC7A485BCFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoya.Web.Client", "src\Zoya.Web.Client\Zoya.Web.Client.csproj", "{A25226F1-CC40-4043-A687-C1CB1A881645}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD61A14F-8B3B-412E-8260-A259A3A22E1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD61A14F-8B3B-412E-8260-A259A3A22E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD61A14F-8B3B-412E-8260-A259A3A22E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD61A14F-8B3B-412E-8260-A259A3A22E1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42E7BC67-EC34-48DA-AAFF-18545EFEF5D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42E7BC67-EC34-48DA-AAFF-18545EFEF5D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42E7BC67-EC34-48DA-AAFF-18545EFEF5D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42E7BC67-EC34-48DA-AAFF-18545EFEF5D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF2A6BBF-ADB2-40DF-8B4B-AC60BDDCCFB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF2A6BBF-ADB2-40DF-8B4B-AC60BDDCCFB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF2A6BBF-ADB2-40DF-8B4B-AC60BDDCCFB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF2A6BBF-ADB2-40DF-8B4B-AC60BDDCCFB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A11995C-0FA4-47F0-811E-9EC7A485BCFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A11995C-0FA4-47F0-811E-9EC7A485BCFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A11995C-0FA4-47F0-811E-9EC7A485BCFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A11995C-0FA4-47F0-811E-9EC7A485BCFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A25226F1-CC40-4043-A687-C1CB1A881645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A25226F1-CC40-4043-A687-C1CB1A881645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A25226F1-CC40-4043-A687-C1CB1A881645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A25226F1-CC40-4043-A687-C1CB1A881645}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FD61A14F-8B3B-412E-8260-A259A3A22E1F} = {8171EB24-4326-4F97-BDDB-F69DCA7FBCB3}
+		{42E7BC67-EC34-48DA-AAFF-18545EFEF5D6} = {8171EB24-4326-4F97-BDDB-F69DCA7FBCB3}
+		{FF2A6BBF-ADB2-40DF-8B4B-AC60BDDCCFB1} = {8171EB24-4326-4F97-BDDB-F69DCA7FBCB3}
+		{3A11995C-0FA4-47F0-811E-9EC7A485BCFC} = {8171EB24-4326-4F97-BDDB-F69DCA7FBCB3}
+		{A25226F1-CC40-4043-A687-C1CB1A881645} = {8171EB24-4326-4F97-BDDB-F69DCA7FBCB3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0D5568C-2C65-4EA8-94AE-D73E513F2B78}
+	EndGlobalSection
+EndGlobal

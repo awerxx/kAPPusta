@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <UserSecretsId>3504f59a-6436-4c84-99ce-8dc3c4bc1d9d</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Zoya.Application\Zoya.Application.csproj" />
+    <ProjectReference Include="..\Zoya.Infrastructure.Persistence\Zoya.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\Zoya.Web.Client\Zoya.Web.Client.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.5" />
+  </ItemGroup>
+
+</Project>

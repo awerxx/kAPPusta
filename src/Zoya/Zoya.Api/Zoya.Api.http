@@ -1,6 +1,0 @@
-@Zoya.Api_HostAddress = http://localhost:5115
-
-GET {{Zoya.Api_HostAddress}}/
-Accept: application/json
-
-###
