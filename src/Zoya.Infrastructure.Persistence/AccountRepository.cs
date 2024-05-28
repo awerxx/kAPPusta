@@ -1,4 +1,5 @@
 using Avvr.Kappusta.Zoya.Application;
+using Avvr.Kappusta.Zoya.Core;
 using Avvr.Kappusta.Zoya.Core.Entities;
 
 namespace Avvr.Kappusta.Zoya.Infrastructure.Persistence;
