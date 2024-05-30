@@ -11,7 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zoya.Application", "src\Zoy
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zoya.Infrastructure.Persistence", "src\Zoya.Infrastructure.Persistence\Zoya.Infrastructure.Persistence.csproj", "{FF2A6BBF-ADB2-40DF-8B4B-AC60BDDCCFB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoya.Web", "src\Zoya.Web\Zoya.Web.csproj", "{04AB2F67-FC82-4840-8696-BAF2BCE4C730}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zoya.Web", "src\Zoya.Web\Zoya.Web.csproj", "{04AB2F67-FC82-4840-8696-BAF2BCE4C730}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{13C37752-A8B3-42DC-9B93-C66E228641EF}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
