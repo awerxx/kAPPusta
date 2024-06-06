@@ -1,4 +1,3 @@
-using Avvr.Kappusta.Zoya.Application;
 using Avvr.Kappusta.Zoya.Core;
 using Avvr.Kappusta.Zoya.Core.Entities;
 

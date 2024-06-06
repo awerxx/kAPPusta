@@ -1,6 +1,6 @@
 namespace Avvr.Kappusta.Zoya.Core.Entities;
 
-public class Account
+public sealed class Account
 {
     private Account(string name) => Name = name;
 
