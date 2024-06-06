@@ -8,7 +8,7 @@ public class AccountEndpoints
 {
     public static void DefineEndpoints(WebApplication app)
     {
-        app.MapGet("accounts", GetAccounts);
+        app.MapGet("api/accounts", GetAccounts);
     }
 
     private static async Task<AccountListResponse> GetAccounts(
