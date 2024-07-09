@@ -31,6 +31,7 @@ csharp_style_expression_bodied_operators = true
 csharp_style_expression_bodied_constructors = true
 csharp_style_expression_bodied_methods = true
 csharp_style_implicit_object_creation_when_type_is_apparent = true
+csharp_style_prefer_primary_constructors = false
 
 # Microsoft .NET properties
 csharp_preserve_single_line_blocks = true
