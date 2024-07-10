@@ -2,7 +2,7 @@ using Avvr.Kappusta.Zoya.Application;
 using Avvr.Kappusta.Zoya.Core;
 using Avvr.Kappusta.Zoya.Infrastructure.Persistence;
 using Avvr.Kappusta.Zoya.Web.Data;
-using Avvr.Kappusta.Zoya.Web.Endpoints;
+using Avvr.Kappusta.Zoya.Web.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddHttpClient<AccountService>();
-builder.Services.AddSingleton<IAccountRepository, AccountRepository>();
+builder.Services.AddSingleton<IAccountRepository, DummyAccountRepository>();
 builder.Services.AddApplication();
 var app = builder.Build();
 
@@ -22,7 +22,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-AccountEndpoints.DefineEndpoints(app);
+app.MapEndpoints();
 
 app.UseHttpsRedirection();
 
@@ -32,7 +32,5 @@ app.UseRouting();
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
-app.MapGet("/admin", () => "admin");
-
 
 app.Run();

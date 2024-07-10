@@ -1,12 +1,13 @@
 using Avvr.Kappusta.Zoya.Application.Accounts.Responses;
 using Avvr.Kappusta.Zoya.Core;
+using FluentResults;
 using Mapster;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
 namespace Avvr.Kappusta.Zoya.Application.Accounts.Queries.GetAccounts;
 
-public sealed class GetAccountsQueryHandler : IRequestHandler<GetAccountsQuery, AccountListResponse>
+public sealed class GetAccountsQueryHandler : IRequestHandler<GetAccountsQuery, Result<AccountListResponse>>
 {
     private readonly IAccountRepository               _accountRepository;
     private readonly ILogger<GetAccountsQueryHandler> _logger;
@@ -17,7 +18,7 @@ public sealed class GetAccountsQueryHandler : IRequestHandler<GetAccountsQuery, 
         _logger            = logger;
     }
 
-    public async Task<AccountListResponse> Handle(GetAccountsQuery request, CancellationToken cancellationToken)
+    public async Task<Result<AccountListResponse>> Handle(GetAccountsQuery request, CancellationToken cancellationToken)
     {
         _logger.Log(LogLevel.Information, "Getting all account list (no user yet)");
         var accounts = await _accountRepository.GetAccountsAsync(cancellationToken);

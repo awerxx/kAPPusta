@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Zoya.Infrastructure.Persistence\Zoya.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Endpoints\" />
+  </ItemGroup>
+
 </Project>
