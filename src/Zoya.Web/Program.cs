@@ -12,6 +12,17 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddHttpClient<AccountService>();
 builder.Services.AddSingleton<IAccountRepository, DummyAccountRepository>();
 builder.Services.AddApplication();
+
+builder.Services.AddCors(
+    options => options.AddPolicy(
+        "CorsPolicy",
+        policyBuilder =>
+        {
+            policyBuilder.AllowAnyMethod()
+                         .AllowAnyHeader()
+                         .WithOrigins("http://localhost:5000", "https://localhost:5001")
+                         .AllowCredentials();
+        }));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
