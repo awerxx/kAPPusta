@@ -1,20 +1,19 @@
+using Avvr.Kappusta.Zoya.Application.Accounts.Queries.GetAccounts;
 using Avvr.Kappusta.Zoya.Application.Accounts.Responses;
+using MediatR;
 
 namespace Avvr.Kappusta.Zoya.Web.Data;
 
 public class AccountService
 {
-    private readonly HttpClient         _httpClient;
+    private readonly IMediator _mediator;
 
-    public AccountService(HttpClient httpClient)
+    public AccountService(IMediator mediator) => _mediator = mediator;
+
+    public async Task<AccountListResponse> GetAccountsAsync(CancellationToken cancellationToken)
     {
-        _httpClient   = httpClient;
-    }
+        var result = await _mediator.Send(request: new GetAccountsQuery(), cancellationToken);
 
-    public async Task<AccountResponse[]> GetAccountsAsync()
-    {
-        var accounts = await _httpClient.GetFromJsonAsync<AccountListResponse>("https://localhost:7035/api/accounts");
-
-        return accounts.Accounts.ToArray();
+        return result.Value;
     }
 }

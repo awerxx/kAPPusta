@@ -3,43 +3,26 @@ using Avvr.Kappusta.Zoya.Core;
 using Avvr.Kappusta.Zoya.Infrastructure.Persistence;
 using Avvr.Kappusta.Zoya.Web.Data;
 using Avvr.Kappusta.Zoya.Web.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using Serilog;
-using Serilog.Events;
-using Serilog.Formatting.Compact;
 
-Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
 try
 {
-    Log.Information("Zoya is starting up...");
     var builder = WebApplication.CreateBuilder();
-
+    builder.AddSerilog();
+    builder.Services.AddApplication();
     builder.Services.AddRazorPages();
     builder.Services.AddServerSideBlazor();
-    builder.Services.AddHttpClient<AccountService>();
-    builder.Services.AddSingleton<IAccountRepository, DummyAccountRepository>();
-    builder.Services.AddApplication();
+    builder.Services.AddScoped<AccountService>();
+    builder.Services.AddScoped<IAccountRepository, DummyAccountRepository>();
+
     builder.Services.AddSwaggerGen();
     builder.Services.AddEndpointsApiExplorer();
-
-    var isJsonConsoleLoggingEnabled = builder.Configuration.GetValue<bool>("Logging:JsonConsoleLoggingEnabled");
-    var minimumLogLevel             = builder.Configuration.GetValue<LogEventLevel>("Logging:LogLevel:Default");
-    if (isJsonConsoleLoggingEnabled)
-    {
-        builder.Host.UseSerilog(
-            (_, loggerConfiguration) =>
-            {
-                loggerConfiguration.WriteTo.Console(new RenderedCompactJsonFormatter(), minimumLogLevel);
-            });
-    }
-    else
-    {
-        builder.Host.UseSerilog(
-            (_, loggerConfiguration) =>
-            {
-                loggerConfiguration.WriteTo.Console(minimumLogLevel);
-            });
-    }
-
+    builder.Services.AddSwaggerGen(
+        options =>
+        {
+            options.SwaggerDoc("v1", new OpenApiInfo { Title = "Zoya", Version = "v1" });
+        });
     builder.Services.AddCors(
         options => options.AddPolicy(
             "CorsPolicy",
@@ -67,7 +50,7 @@ try
             options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Zoya v1");
-                options.RoutePrefix = string.Empty;
+                options.RoutePrefix = "api";
             });
     }
 
