@@ -41,7 +41,8 @@ internal static class Endpoints
         var group         = app.MapGroup("api/v{version:apiVersion}").WithApiVersionSet(apiVersionSet);
         if (app.Environment.IsDevelopment())
             UseSwagger(app);
-        DefineAccountEndpoints(group);
+
+        MapAccountEndpoints(group);
     }
 
     private static void UseSwagger(WebApplication app)
@@ -56,7 +57,7 @@ internal static class Endpoints
             });
     }
 
-    private static void DefineAccountEndpoints(RouteGroupBuilder app)
+    private static void MapAccountEndpoints(RouteGroupBuilder app)
         => app.MapGet("accounts", GetAccounts).WithDescription("Get all user accounts");
 
     private static async Task<AccountListResponse> GetAccounts(
