@@ -3,7 +3,6 @@ using Avvr.Kappusta.Zoya.Core;
 using Avvr.Kappusta.Zoya.Infrastructure.Persistence;
 using Avvr.Kappusta.Zoya.Web.Data;
 using Avvr.Kappusta.Zoya.Web.DependencyInjection;
-using Microsoft.OpenApi.Models;
 using Serilog;
 
 try
@@ -16,13 +15,7 @@ try
     builder.Services.AddScoped<AccountService>();
     builder.Services.AddScoped<IAccountRepository, DummyAccountRepository>();
 
-    builder.Services.AddSwaggerGen();
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen(
-        options =>
-        {
-            options.SwaggerDoc("v1", new OpenApiInfo { Title = "Zoya", Version = "v1" });
-        });
+    builder.Services.AddVersionedApi();
     builder.Services.AddCors(
         options => options.AddPolicy(
             "CorsPolicy",
@@ -43,18 +36,7 @@ try
         app.UseHsts();
     }
 
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI(
-            options =>
-            {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Zoya v1");
-                options.RoutePrefix = "api";
-            });
-    }
-
-    app.MapEndpoints();
+    app.UseVersionedApi();
 
     app.UseHttpsRedirection();
 
