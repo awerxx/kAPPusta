@@ -3,7 +3,6 @@ using Avvr.Kappusta.Zoya.Core;
 using Avvr.Kappusta.Zoya.Infrastructure.Persistence;
 using Avvr.Kappusta.Zoya.Web.Data;
 using Avvr.Kappusta.Zoya.Web.DependencyInjection;
-using Microsoft.AspNetCore.HttpOverrides;
 using Serilog;
 
 try
@@ -21,7 +20,6 @@ try
     builder.Services.AddScoped<AccountService>();
     builder.Services.AddScoped<IAccountRepository, DummyAccountRepository>();
 
-    builder.Services.AddVersionedApi();
     builder.Services.ConfigureCors();
 
     var app = builder.Build();
@@ -36,12 +34,9 @@ try
         app.UseHsts();
     }
 
-    app.UseVersionedApi();
-
     app.UseHttpsRedirection();
 
     app.UseStaticFiles();
-    app.UseForwardedHeaders(new ForwardedHeadersOptions { ForwardedHeaders = ForwardedHeaders.All });
 
     app.UseRouting();
 
@@ -52,7 +47,7 @@ try
 }
 catch (Exception e)
 {
-    Log.Fatal(e, "Zoya host terminated unexpectedly");
+    Log.Fatal(e, "Zoya Web Admin terminated unexpectedly");
 }
 finally
 {

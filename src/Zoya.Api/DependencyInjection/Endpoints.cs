@@ -4,7 +4,7 @@ using Avvr.Kappusta.Zoya.Application.Accounts.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Avvr.Kappusta.Zoya.Web.DependencyInjection;
+namespace Avvr.Kappusta.Zoya.Api.DependencyInjection;
 
 internal static class Endpoints
 {
@@ -38,7 +38,7 @@ internal static class Endpoints
     public static void UseVersionedApi(this WebApplication app)
     {
         var apiVersionSet = app.NewApiVersionSet().HasApiVersion(_apiVersion).ReportApiVersions().Build();
-        var group         = app.MapGroup("api/v{version:apiVersion}").WithApiVersionSet(apiVersionSet);
+        var group         = app.MapGroup("v{version:apiVersion}").WithApiVersionSet(apiVersionSet);
         if (app.Environment.IsDevelopment())
             UseSwagger(app);
 
@@ -52,13 +52,15 @@ internal static class Endpoints
             options =>
             {
                 options.SwaggerEndpoint($"/swagger/v{_apiVersion}/swagger.json", $"Zoya {_apiVersion}");
-                ;
-                options.RoutePrefix = $"api";
+                options.RoutePrefix = "swagger";
             });
     }
 
     private static void MapAccountEndpoints(RouteGroupBuilder app)
-        => app.MapGet("accounts", GetAccounts).WithDescription("Get all user accounts");
+        => app.MapGet("accounts", GetAccounts)
+              .WithDescription("Get all user accounts")
+              .WithName("GetAccounts")
+              .WithOpenApi();
 
     private static async Task<AccountListResponse> GetAccounts(
         [FromServices] IMediator mediator,
