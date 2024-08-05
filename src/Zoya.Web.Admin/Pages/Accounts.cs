@@ -1,8 +1,8 @@
 ﻿using Avvr.Kappusta.Zoya.Application.Accounts.Responses;
-using Avvr.Kappusta.Zoya.Web.Data;
+using Avvr.Kappusta.Zoya.Web.Admin.Data;
 using Microsoft.AspNetCore.Components;
 
-namespace Avvr.Kappusta.Zoya.Web.Pages;
+namespace Avvr.Kappusta.Zoya.Web.Admin.Pages;
 
 public partial class Accounts
 {

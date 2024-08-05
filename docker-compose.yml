@@ -1,6 +1,11 @@
-﻿services:
+services:
   zoya.api:
     image: zoya.api
     build:
       context: .
       dockerfile: Zoya.Api/Dockerfile
+  zoya.web.admin:
+    image: zoya.web.admin
+    build:
+      context: .
+      dockerfile: Zoya.Web.Admin/Dockerfile

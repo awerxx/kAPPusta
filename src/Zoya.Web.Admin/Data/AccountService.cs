@@ -2,7 +2,7 @@ using Avvr.Kappusta.Zoya.Application.Accounts.Queries.GetAccounts;
 using Avvr.Kappusta.Zoya.Application.Accounts.Responses;
 using MediatR;
 
-namespace Avvr.Kappusta.Zoya.Web.Data;
+namespace Avvr.Kappusta.Zoya.Web.Admin.Data;
 
 public class AccountService
 {

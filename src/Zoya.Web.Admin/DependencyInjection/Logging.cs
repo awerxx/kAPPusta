@@ -2,7 +2,7 @@
 using Serilog.Events;
 using Serilog.Formatting.Compact;
 
-namespace Avvr.Kappusta.Zoya.Web.DependencyInjection;
+namespace Avvr.Kappusta.Zoya.Web.Admin.DependencyInjection;
 
 internal static class Logging
 {
