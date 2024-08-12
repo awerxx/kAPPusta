@@ -10,25 +10,17 @@ internal static class Logging
     {
         builder.Logging.ClearProviders();
 
-        Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
+        Log.Logger = new LoggerConfiguration().CreateLogger();
 
-        var isJsonConsoleLoggingEnabled = builder.Configuration.GetValue<bool>("Logging:JsonConsoleLoggingEnabled");
-        var minimumLogLevel             = builder.Configuration.GetValue<LogEventLevel>("Logging:LogLevel:Default");
-        if (isJsonConsoleLoggingEnabled)
-        {
-            builder.Host.UseSerilog(
-                (_, loggerConfiguration) =>
-                {
-                    loggerConfiguration.WriteTo.Console(new RenderedCompactJsonFormatter(), minimumLogLevel);
-                });
-        }
-        else
-        {
-            builder.Host.UseSerilog(
-                (_, loggerConfiguration) =>
-                {
-                    loggerConfiguration.WriteTo.Console(minimumLogLevel);
-                });
-        }
+        builder.Host.UseSerilog(
+            (context, loggerConfiguration) =>
+            {
+                loggerConfiguration.ReadFrom.Configuration(context.Configuration);
+            });
+    }
+
+    public static void UseSerilog(this WebApplication app)
+    {
+        app.UseSerilogRequestLogging();
     }
 }

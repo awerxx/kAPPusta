@@ -23,10 +23,12 @@ try
 
     var app = builder.Build();
 
+    app.AddMiddleware();
     app.UseVersionedApi();
 
     app.UseHttpsRedirection();
     app.UseForwardedHeaders(new ForwardedHeadersOptions { ForwardedHeaders = ForwardedHeaders.All });
+    app.UseSerilog();
 
     app.Run();
 }
