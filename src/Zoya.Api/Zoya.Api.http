@@ -1,6 +1,6 @@
-@Zoya.Api_HostAddress = http://localhost:5183
+@Zoya.Api_HostAddress = http://localhost:5183/v1
 
-GET {{Zoya.Api_HostAddress}}/weatherforecast/
+GET {{Zoya.Api_HostAddress}}/accounts/
 Accept: application/json
 
 ###
