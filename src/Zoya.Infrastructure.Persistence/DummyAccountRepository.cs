@@ -1,6 +1,6 @@
 using System.Collections.Concurrent;
-using Avvr.Kappusta.Zoya.Core;
-using Avvr.Kappusta.Zoya.Core.Entities;
+using Avvr.Kappusta.Zoya.Domain;
+using Avvr.Kappusta.Zoya.Domain.Entities;
 
 namespace Avvr.Kappusta.Zoya.Infrastructure.Persistence;
 

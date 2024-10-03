@@ -1,6 +1,6 @@
 using Avvr.Kappusta.Zoya.Api.DependencyInjection;
 using Avvr.Kappusta.Zoya.Application;
-using Avvr.Kappusta.Zoya.Core;
+using Avvr.Kappusta.Zoya.Domain;
 using Avvr.Kappusta.Zoya.Infrastructure.Persistence;
 using Microsoft.AspNetCore.HttpOverrides;
 using Serilog;
@@ -19,7 +19,6 @@ try
     builder.Services.AddScoped<IAccountRepository, DummyAccountRepository>();
     builder.Services.AddVersionedApi();
     builder.Services.ConfigureCors();
-
 
     var app = builder.Build();
 

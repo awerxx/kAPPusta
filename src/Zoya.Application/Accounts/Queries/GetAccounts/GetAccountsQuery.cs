@@ -4,4 +4,4 @@ using MediatR;
 
 namespace Avvr.Kappusta.Zoya.Application.Accounts.Queries.GetAccounts;
 
-public readonly record struct GetAccountsQuery() : IRequest<Result<AccountListResponse>>;
+public readonly record struct GetAccountsQuery : IRequest<Result<AccountListResponse>>;

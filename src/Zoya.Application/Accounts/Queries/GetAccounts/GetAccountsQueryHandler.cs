@@ -1,5 +1,5 @@
 using Avvr.Kappusta.Zoya.Application.Accounts.Responses;
-using Avvr.Kappusta.Zoya.Core;
+using Avvr.Kappusta.Zoya.Domain;
 using FluentResults;
 using Mapster;
 using MediatR;

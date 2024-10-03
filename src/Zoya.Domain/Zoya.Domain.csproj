@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Kappusta.Common\Kappusta.Common.csproj" />
+  </ItemGroup>
+</Project>

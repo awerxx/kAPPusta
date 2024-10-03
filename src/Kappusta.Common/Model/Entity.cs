@@ -1,0 +1,18 @@
+﻿namespace Avvr.Kappusta.Kappusta.Common.Model;
+
+public abstract class Entity<TId> : IEquatable<Entity<TId>> where TId : notnull
+{
+    public TId Id { get; protected set; }
+
+    protected Entity(TId id) => Id = id;
+
+    public bool Equals(Entity<TId>? other) => Equals((object?)other);
+
+    public override bool Equals(object? obj) => obj is Entity<TId> entity && Id.Equals(entity.Id);
+
+    public override int GetHashCode() => Id.GetHashCode();
+
+    public static bool operator ==(Entity<TId>? a, Entity<TId>? b) => Equals(a, b);
+
+    public static bool operator !=(Entity<TId>? a, Entity<TId>? b) => !Equals(a, b);
+}

@@ -19,8 +19,5 @@ internal static class Logging
             });
     }
 
-    public static void UseSerilog(this WebApplication app)
-    {
-        app.UseSerilogRequestLogging();
-    }
+    public static void UseSerilog(this WebApplication app) => app.UseSerilogRequestLogging();
 }

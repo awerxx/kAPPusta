@@ -1,6 +1,6 @@
-using Avvr.Kappusta.Zoya.Core.Entities;
+using Avvr.Kappusta.Zoya.Domain.Entities;
 
-namespace Avvr.Kappusta.Zoya.Core;
+namespace Avvr.Kappusta.Zoya.Domain;
 
 public interface IAccountRepository
 {
