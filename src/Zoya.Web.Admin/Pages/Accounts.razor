@@ -24,10 +24,10 @@ else
     @foreach (var account in _accounts)
     {
       <tr>
-        <td>@DateTime.Now.Date</td>
-        <td>@account.Name</td>
-        <td>Test</td>
-        <td>1000</td>
+        <td>@account.CreatedOn</td>
+        <td>@account.DisplayName</td>
+        <td>Hardcoded owner</td>
+        <td>@account.Balance @account.CurrencySymbol</td>
       </tr>
     }
     </tbody>

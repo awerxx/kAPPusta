@@ -1,18 +1,28 @@
+using Avvr.Kappusta.Kappusta.Common.Model;
+
 namespace Avvr.Kappusta.Zoya.Domain.Entities;
 
-public sealed class Account
+public sealed class Account : Entity<AccountId>
 {
-    private Account(AccountId id, string name)
+    private Account(AccountId id, AccountName name, Currency currency)
+        : base(id)
     {
-        Id   = id;
-        Name = name;
+        Currency  = currency;
+        Balance   = new AccountBalance(currency);
+        Name      = name;
+        CreatedOn = DateTime.UtcNow;
     }
 
-    private Account(string name)
-        : this(new AccountId(new Guid()), name) { }
+    private Account(string name, Currency currency)
+        : this(new AccountId(new Guid()), name, currency) { }
 
-    public AccountId Id { get; }
-    public string Name { get; }
+    public AccountName Name { get; }
 
-    public static Account Create(string name) => new(name);
+    public Currency Currency { get; }
+
+    public DateTime CreatedOn { get; }
+
+    public AccountBalance Balance { get; private set; }
+
+    public static Account Create(AccountName name, Currency currency) => new(name, currency);
 }

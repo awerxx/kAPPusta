@@ -19,6 +19,7 @@ try
     builder.Services.AddServerSideBlazor();
     builder.Services.AddScoped<AccountService>();
     builder.Services.AddScoped<IAccountRepository, DummyAccountRepository>();
+    builder.Services.RegisterMapsterConfiguration();
 
     builder.Services.ConfigureCors();
 
