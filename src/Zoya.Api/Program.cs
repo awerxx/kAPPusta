@@ -16,6 +16,7 @@ try
            .Build();
     builder.Services.AddApplication();
 
+    builder.Services.RegisterMapsterConfiguration();
     builder.Services.AddScoped<IAccountRepository, DummyAccountRepository>();
     builder.Services.AddVersionedApi();
     builder.Services.ConfigureCors();
