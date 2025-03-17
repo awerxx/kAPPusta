@@ -9,11 +9,11 @@ public partial class Accounts
     private AccountResponse[]? _accounts;
 
     [Inject]
-    public AccountService AccountService { get; set; } = default!;
+    public AccountService? AccountService { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        var response = await AccountService.GetAccountsAsync(CancellationToken.None);
+        var response = await AccountService!.GetAccountsAsync(CancellationToken.None);
         _accounts = response.Accounts;
     }
 }

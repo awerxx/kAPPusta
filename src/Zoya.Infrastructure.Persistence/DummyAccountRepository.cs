@@ -15,7 +15,7 @@ public class DummyAccountRepository : IAccountRepository
         [5] = Account.Create("Account 5", Currency.Pln),
     };
 
-    public async Task<IReadOnlyCollection<Account>> GetAccountsAsync(CancellationToken cancellationToken = default)
+    public async Task<IReadOnlyCollection<Account>> GetAccountsAsync(CancellationToken cancellationToken)
     {
         await Task.Delay(100, cancellationToken);
 
