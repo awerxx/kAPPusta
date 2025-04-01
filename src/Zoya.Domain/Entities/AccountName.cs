@@ -9,13 +9,13 @@ public class AccountName : ValueObject
     public AccountName(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new ArgumentException("Name cannot be empty", nameof(value));
+            throw new ArgumentException("Name cannot be empty", paramName: nameof(value));
 
         if (value.Length > 50)
-            throw new ArgumentException("Name cannot be longer than 50 characters", nameof(value));
+            throw new ArgumentException("Name cannot be longer than 50 characters", paramName: nameof(value));
 
         if (!value.All(char.IsLetterOrDigit) && char.IsDigit(value[0]))
-            throw new ArgumentException("Name cannot start with a number", nameof(value));
+            throw new ArgumentException("Name cannot start with a number", paramName: nameof(value));
 
         _value = value;
     }

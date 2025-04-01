@@ -16,7 +16,7 @@ internal static class Endpoints
                         options.ReportApiVersions                   = true;
                         options.AssumeDefaultVersionWhenUnspecified = true;
                         options.ApiVersionReader = ApiVersionReader.Combine(
-                            new UrlSegmentApiVersionReader(),
+                            apiVersionReader: new UrlSegmentApiVersionReader(),
                             new HeaderApiVersionReader("X-Api-Version"));
                     })
                 .AddApiExplorer(
@@ -48,7 +48,7 @@ internal static class Endpoints
         app.UseSwaggerUI(
             options =>
             {
-                options.SwaggerEndpoint($"/swagger/v{_apiVersion}/swagger.json", $"Zoya {_apiVersion}");
+                options.SwaggerEndpoint(url: $"/swagger/v{_apiVersion}/swagger.json", name: $"Zoya {_apiVersion}");
                 options.RoutePrefix = "swagger";
             });
     }

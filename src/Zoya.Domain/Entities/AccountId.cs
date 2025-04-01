@@ -6,12 +6,12 @@ public sealed class AccountId : ValueObject
 {
     public AccountId(Guid value) => Value = value;
 
+    public Guid Value { get; }
+
     public static AccountId Create() => new(Guid.NewGuid());
 
     protected override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
     }
-
-    public Guid Value { get; }
 }

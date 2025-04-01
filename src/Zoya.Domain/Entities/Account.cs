@@ -14,7 +14,7 @@ public sealed class Account : Entity<AccountId>
     }
 
     private Account(string name, Currency currency)
-        : this(new AccountId(new Guid()), name, currency) { }
+        : this(id: new AccountId(new Guid()), name, currency) { }
 
     public AccountName Name { get; }
 
