@@ -1,21 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <TargetFramework>net8.0</TargetFramework> <!-- Problem net9.0 with some packages -->
     <IsAspireHost>true</IsAspireHost>
     <UserSecretsId>00147da8-5a70-40dc-a902-800abdde7e88</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.2.2"/>
+    <PackageReference Include="Aspire.Hosting.AppHost"/>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Zoya.Api\Zoya.Api.csproj"/>
     <ProjectReference Include="..\Zoya.Web.Admin\Zoya.Web.Admin.csproj"/>
   </ItemGroup>
-
+  
 </Project>

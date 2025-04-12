@@ -12,7 +12,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>13</LangVersion>
     <AssemblyName>$(AssemblyName)</AssemblyName>
     <RootNamespace>Avvr.Kappusta.$(MSBuildProjectName)</RootNamespace>
   </PropertyGroup>
