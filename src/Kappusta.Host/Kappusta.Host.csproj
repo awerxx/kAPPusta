@@ -18,4 +18,8 @@
     <ProjectReference Include="..\Zoya.Web.Admin\Zoya.Web.Admin.csproj"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageVersion Update="Aspire.Hosting.AppHost" Version="9.2.0" />
+  </ItemGroup>
+
 </Project>
