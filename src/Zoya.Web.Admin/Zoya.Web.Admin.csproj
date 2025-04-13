@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageReference Include="Serilog.AspNetCore"/>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Zoya.Infrastructure.Persistence\Zoya.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\Zoya.Infrastructure.Persistence\Zoya.Infrastructure.Persistence.csproj"/>
   </ItemGroup>
 
 </Project>

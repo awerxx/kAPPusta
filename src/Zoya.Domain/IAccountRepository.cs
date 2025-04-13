@@ -4,5 +4,5 @@ namespace Avvr.Kappusta.Zoya.Domain;
 
 public interface IAccountRepository
 {
-    Task<IReadOnlyCollection<Account>> GetAccountsAsync(CancellationToken cancellationToken = default);
+    Task<IReadOnlyCollection<Account>> GetAccountsAsync(CancellationToken cancellationToken);
 }

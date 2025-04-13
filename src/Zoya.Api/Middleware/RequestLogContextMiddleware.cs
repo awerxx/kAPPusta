@@ -11,8 +11,6 @@ public class RequestLogContextMiddleware
     public Task InvokeAsync(HttpContext context)
     {
         using (LogContext.PushProperty("RequestLogId", context.TraceIdentifier))
-        {
             return _next(context);
-        }
     }
 }

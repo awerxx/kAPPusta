@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Zoya.Application\Zoya.Application.csproj" />
+    <ProjectReference Include="..\Zoya.Application\Zoya.Application.csproj"/>
   </ItemGroup>
 
 </Project>

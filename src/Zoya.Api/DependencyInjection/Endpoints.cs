@@ -1,8 +1,5 @@
 ﻿using Asp.Versioning;
-using Avvr.Kappusta.Zoya.Application.Accounts.Queries.GetAccounts;
-using Avvr.Kappusta.Zoya.Application.Accounts.Responses;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
+using Avvr.Kappusta.Zoya.Api.Endpoints;
 
 namespace Avvr.Kappusta.Zoya.Api.DependencyInjection;
 
@@ -19,7 +16,7 @@ internal static class Endpoints
                         options.ReportApiVersions                   = true;
                         options.AssumeDefaultVersionWhenUnspecified = true;
                         options.ApiVersionReader = ApiVersionReader.Combine(
-                            new UrlSegmentApiVersionReader(),
+                            apiVersionReader: new UrlSegmentApiVersionReader(),
                             new HeaderApiVersionReader("X-Api-Version"));
                     })
                 .AddApiExplorer(
@@ -42,7 +39,7 @@ internal static class Endpoints
         if (app.Environment.IsDevelopment())
             UseSwagger(app);
 
-        MapAccountEndpoints(group);
+        group.MapAccountEndpoints();
     }
 
     private static void UseSwagger(WebApplication app)
@@ -51,23 +48,8 @@ internal static class Endpoints
         app.UseSwaggerUI(
             options =>
             {
-                options.SwaggerEndpoint($"/swagger/v{_apiVersion}/swagger.json", $"Zoya {_apiVersion}");
+                options.SwaggerEndpoint(url: $"/swagger/v{_apiVersion}/swagger.json", name: $"Zoya {_apiVersion}");
                 options.RoutePrefix = "swagger";
             });
-    }
-
-    private static void MapAccountEndpoints(RouteGroupBuilder app)
-        => app.MapGet("accounts", GetAccounts)
-              .WithDescription("Get all user accounts")
-              .WithName("GetAccounts")
-              .WithOpenApi();
-
-    private static async Task<AccountListResponse> GetAccounts(
-        [FromServices] IMediator mediator,
-        CancellationToken cancellationToken)
-    {
-        var result = await mediator.Send(request: new GetAccountsQuery(), cancellationToken);
-
-        return result.Value;
     }
 }

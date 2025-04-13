@@ -1,6 +1,4 @@
 ﻿using Serilog;
-using Serilog.Events;
-using Serilog.Formatting.Compact;
 
 namespace Avvr.Kappusta.Zoya.Api.DependencyInjection;
 

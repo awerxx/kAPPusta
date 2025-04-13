@@ -2,9 +2,8 @@
 
 public abstract class Entity<TId> : IEqualityComparer<Entity<TId>>, IEquatable<Entity<TId>> where TId : notnull
 {
-    public TId Id { get; }
-
     protected Entity(TId id) => Id = id;
+    public TId Id { get; protected set; }
 
     public bool Equals(Entity<TId>? other) => Equals((object?)other);
 

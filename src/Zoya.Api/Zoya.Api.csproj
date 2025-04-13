@@ -1,26 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>34bfff92-8335-4b5d-820d-6de06dd0e9c5</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Asp.Versioning.Http" Version="8.1.0" />
-    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.10" />
-    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
+    <PackageReference Include="Asp.Versioning.Http"/>
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer"/>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
+    <PackageReference Include="Serilog.AspNetCore"/>
+    <PackageReference Include="Swashbuckle.AspNetCore"/>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Zoya.Application\Zoya.Application.csproj" />
-    <ProjectReference Include="..\Zoya.Domain\Zoya.Domain.csproj" />
-    <ProjectReference Include="..\Zoya.Infrastructure.Persistence\Zoya.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\Zoya.Application\Zoya.Application.csproj"/>
+    <ProjectReference Include="..\Zoya.Domain\Zoya.Domain.csproj"/>
+    <ProjectReference Include="..\Zoya.Infrastructure.Persistence\Zoya.Infrastructure.Persistence.csproj"/>
   </ItemGroup>
 
 </Project>
