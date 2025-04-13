@@ -1,4 +1,4 @@
-﻿namespace Avvr.Kappusta.Kappusta.Common;
+﻿namespace Avvr.Kappusta.Kappusta.Common.Extensions;
 
 public static class EnumerableExtensions
 {

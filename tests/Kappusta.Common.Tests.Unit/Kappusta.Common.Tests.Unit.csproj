@@ -14,4 +14,8 @@
     <PackageReference Include="TUnit" Version="0.2.34" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Kappusta.Common\Kappusta.Common.csproj" />
+  </ItemGroup>
+
 </Project>
