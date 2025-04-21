@@ -7,7 +7,7 @@ namespace Avvr.Kappusta.Zoya.Web.Admin.DependencyInjection;
 
 internal static class MappingConfiguration
 {
-    public static void RegisterMapsterConfiguration(this IServiceCollection services)
+    public static void RegisterMapsterConfiguration(this IServiceCollection _)
         => TypeAdapterConfig<Account, AccountResponse>.NewConfig()
                                                       .Map(
                                                           dest => dest.DisplayName,

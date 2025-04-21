@@ -42,7 +42,7 @@ try
     app.MapBlazorHub();
     app.MapFallbackToPage("/_Host");
 
-    app.Run();
+    await app.RunAsync();
 }
 catch (Exception e)
 {
@@ -50,5 +50,5 @@ catch (Exception e)
 }
 finally
 {
-    Log.CloseAndFlush();
+    await Log.CloseAndFlushAsync();
 }

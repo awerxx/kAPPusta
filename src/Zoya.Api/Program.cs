@@ -30,7 +30,7 @@ try
     app.UseForwardedHeaders(new ForwardedHeadersOptions { ForwardedHeaders = ForwardedHeaders.All });
     app.UseSerilog();
 
-    app.Run();
+    await app.RunAsync();
 }
 catch (Exception e)
 {
@@ -38,5 +38,5 @@ catch (Exception e)
 }
 finally
 {
-    Log.CloseAndFlush();
+    await Log.CloseAndFlushAsync();
 }

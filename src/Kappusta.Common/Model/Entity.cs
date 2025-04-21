@@ -1,32 +1,18 @@
 ﻿namespace Avvr.Kappusta.Kappusta.Common.Model;
 
-public abstract class Entity<TId> : IEqualityComparer<Entity<TId>>, IEquatable<Entity<TId>> where TId : notnull
+public abstract class Entity<TId> where TId : notnull
 {
-    protected Entity(TId id) => Id = id;
     public TId Id { get; protected set; }
 
-    public bool Equals(Entity<TId>? other) => Equals((object?)other);
+    protected Entity(TId id) => Id = id ?? throw new ArgumentNullException(nameof(id));
 
-    public override bool Equals(object? obj) => obj is Entity<TId> entity && Id.Equals(entity.Id);
-
-    public override int GetHashCode() => Id.GetHashCode();
-
-    public static bool operator ==(Entity<TId>? a, Entity<TId>? b) => Equals(a, b);
-
-    public static bool operator !=(Entity<TId>? a, Entity<TId>? b) => !Equals(a, b);
-
-    public bool Equals(Entity<TId>? x, Entity<TId>? y)
+    public override bool Equals(object? obj)
     {
-        if (ReferenceEquals(x, y))
-            return true;
-        if (x is null)
+        if (obj is not Entity<TId> other)
             return false;
-        if (y is null)
-            return false;
-        if (x.GetType() != y.GetType())
-            return false;
-        return EqualityComparer<TId>.Default.Equals(x.Id, y.Id);
+
+        return Id.Equals(other.Id);
     }
 
-    public int GetHashCode(Entity<TId> obj) => EqualityComparer<TId>.Default.GetHashCode(obj.Id);
+    public override int GetHashCode() => Id.GetHashCode();
 }

@@ -3,7 +3,7 @@
 <PageTitle>Accounts</PageTitle>
 
 <h1>Your accounts</h1>
-@if (_accounts == null)
+@if (_accountResponse == null)
 {
   <p>
     <em>Loading...</em>
@@ -21,7 +21,7 @@ else
     </tr>
     </thead>
     <tbody>
-    @foreach (var account in _accounts)
+    @foreach (var account in _accountResponse)
     {
       <tr>
         <td>@account.CreatedOn</td>

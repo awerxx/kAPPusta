@@ -14,10 +14,6 @@ public abstract class ValueObject
         return GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
     }
 
-    public static bool operator ==(ValueObject? a, ValueObject? b) => Equals(a, b);
-
-    public static bool operator !=(ValueObject? a, ValueObject? b) => !Equals(a, b);
-
     public override int GetHashCode()
         => GetEqualityComponents().Select(obj => obj?.GetHashCode() ?? 0).Aggregate((x, y) => x ^ y);
 }

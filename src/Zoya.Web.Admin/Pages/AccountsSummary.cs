@@ -4,16 +4,21 @@ using Microsoft.AspNetCore.Components;
 
 namespace Avvr.Kappusta.Zoya.Web.Admin.Pages;
 
-public partial class Accounts
+// AccountsSummary.razor extension
+#pragma warning disable CA1515
+public partial class AccountsSummary
+#pragma warning restore CA1515
 {
-    private AccountResponse[]? _accounts;
+#pragma warning disable IDE0052
+    private AccountResponse[]? _accountResponse;
+#pragma warning restore IDE0052
 
     [Inject]
-    public AccountService? AccountService { get; set; }
+    internal AccountService? AccountService { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         var response = await AccountService!.GetAccountsAsync(CancellationToken.None);
-        _accounts = response.Accounts;
+        _accountResponse = response.Accounts;
     }
 }

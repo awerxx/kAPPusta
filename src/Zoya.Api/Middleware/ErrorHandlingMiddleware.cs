@@ -2,7 +2,7 @@
 
 namespace Avvr.Kappusta.Zoya.Api.Middleware;
 
-public class ErrorHandlingMiddleware
+internal class ErrorHandlingMiddleware
 {
     private readonly ILogger<ErrorHandlingMiddleware> _logger;
     private readonly RequestDelegate                  _next;

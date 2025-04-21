@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Avvr.Kappusta.Zoya.Web.Admin.Data;
 
-public class AccountService
+internal class AccountService
 {
     private readonly IMediator _mediator;
 

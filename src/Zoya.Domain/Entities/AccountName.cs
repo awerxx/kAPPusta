@@ -20,14 +20,10 @@ public class AccountName : ValueObject
         _value = value;
     }
 
-    public static implicit operator string(AccountName accountName) => accountName._value;
-
-    public static implicit operator AccountName(string value) => new(value);
-
     public override string ToString() => _value;
 
     protected override IEnumerable<object> GetEqualityComponents()
     {
-        yield return _value.ToLower();
+        yield return _value;
     }
 }

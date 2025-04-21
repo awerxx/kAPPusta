@@ -1,4 +1,6 @@
-﻿using Serilog;
+﻿using System.Globalization;
+using Serilog;
+using Serilog.Events;
 
 namespace Avvr.Kappusta.Zoya.Web.Admin.DependencyInjection;
 
@@ -8,12 +10,14 @@ internal static class Logging
     {
         builder.Logging.ClearProviders();
 
-        Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
+        Log.Logger = new LoggerConfiguration().WriteTo.Console(
+                                                  restrictedToMinimumLevel: LogEventLevel.Debug,
+                                                  formatProvider: CultureInfo.CurrentCulture)
+                                              .CreateLogger();
 
-        builder.Host.UseSerilog(
-            (context, loggerConfiguration) =>
-            {
-                loggerConfiguration.ReadFrom.Configuration(context.Configuration);
-            });
+        builder.Host.UseSerilog((context, loggerConfiguration) =>
+        {
+            loggerConfiguration.ReadFrom.Configuration(context.Configuration);
+        });
     }
 }

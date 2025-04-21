@@ -2,7 +2,7 @@
 
 namespace Avvr.Kappusta.Zoya.Api.Middleware;
 
-public class RequestLogContextMiddleware
+internal class RequestLogContextMiddleware
 {
     private readonly RequestDelegate _next;
 

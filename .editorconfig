@@ -251,9 +251,14 @@ dotnet_diagnostic.ide0072.severity = none
 # dotnet_diagnostic.ide0023.severity = none -> csharp_style_expression_bodied_operators = true
 # Disable warnings for missing XML comments
 dotnet_diagnostic.cs1591.severity = none
+dotnet_diagnostic.CA1848.severity = suggestion
+dotnet_diagnostic.CA1031.severity = suggestion
+dotnet_diagnostic.CA2007.severity = suggestion
 
 dotnet_analyzer_diagnostic.category-style.severity = error
 
 
 ### Wishlist ###
 # Long naming for tests shouldn't be wrapped as already exceed max line lenght. Check if disable this rule only for tests.
+
+dotnet_code_quality.CA1819.api_surface = private, internal

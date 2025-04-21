@@ -14,7 +14,7 @@ public sealed class Account : Entity<AccountId>
     }
 
     private Account(string name, Currency currency)
-        : this(id: new AccountId(new Guid()), name, currency) { }
+        : this(id: new AccountId(Guid.NewGuid()), new AccountName(name), currency) { }
 
     public AccountName Name { get; }
 
@@ -24,5 +24,5 @@ public sealed class Account : Entity<AccountId>
 
     public AccountBalance Balance { get; private set; }
 
-    public static Account Create(AccountName name, Currency currency) => new(name, currency);
+    public static Account Create(string name, Currency currency) => new(name, currency);
 }
