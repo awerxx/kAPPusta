@@ -10,11 +10,10 @@ internal static class Logging
 
         Log.Logger = new LoggerConfiguration().CreateLogger();
 
-        builder.Host.UseSerilog(
-            (context, loggerConfiguration) =>
-            {
-                loggerConfiguration.ReadFrom.Configuration(context.Configuration);
-            });
+        builder.Host.UseSerilog((context, loggerConfiguration) =>
+        {
+            loggerConfiguration.ReadFrom.Configuration(context.Configuration);
+        });
     }
 
     public static void UseSerilog(this WebApplication app) => app.UseSerilogRequestLogging();

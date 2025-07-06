@@ -9,22 +9,20 @@ internal static class Endpoints
 
     public static IServiceCollection AddVersionedApi(this IServiceCollection services)
     {
-        services.AddApiVersioning(
-                    options =>
-                    {
-                        options.DefaultApiVersion                   = _apiVersion;
-                        options.ReportApiVersions                   = true;
-                        options.AssumeDefaultVersionWhenUnspecified = true;
-                        options.ApiVersionReader = ApiVersionReader.Combine(
-                            apiVersionReader: new UrlSegmentApiVersionReader(),
-                            new HeaderApiVersionReader("X-Api-Version"));
-                    })
-                .AddApiExplorer(
-                    options =>
-                    {
-                        options.GroupNameFormat           = "'v'V";
-                        options.SubstituteApiVersionInUrl = true;
-                    });
+        services.AddApiVersioning(options =>
+                {
+                    options.DefaultApiVersion                   = _apiVersion;
+                    options.ReportApiVersions                   = true;
+                    options.AssumeDefaultVersionWhenUnspecified = true;
+                    options.ApiVersionReader = ApiVersionReader.Combine(
+                        apiVersionReader: new UrlSegmentApiVersionReader(),
+                        new HeaderApiVersionReader("X-Api-Version"));
+                })
+                .AddApiExplorer(options =>
+                {
+                    options.GroupNameFormat           = "'v'V";
+                    options.SubstituteApiVersionInUrl = true;
+                });
 
         services.AddSwaggerGen();
         services.AddEndpointsApiExplorer();
@@ -45,11 +43,10 @@ internal static class Endpoints
     private static void UseSwagger(WebApplication app)
     {
         app.UseSwagger();
-        app.UseSwaggerUI(
-            options =>
-            {
-                options.SwaggerEndpoint(url: $"/swagger/v{_apiVersion}/swagger.json", name: $"Zoya {_apiVersion}");
-                options.RoutePrefix = "swagger";
-            });
+        app.UseSwaggerUI(options =>
+        {
+            options.SwaggerEndpoint(url: $"/swagger/v{_apiVersion}/swagger.json", name: $"Zoya {_apiVersion}");
+            options.RoutePrefix = "swagger";
+        });
     }
 }

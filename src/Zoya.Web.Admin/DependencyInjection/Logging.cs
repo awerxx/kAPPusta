@@ -11,7 +11,7 @@ internal static class Logging
         builder.Logging.ClearProviders();
 
         Log.Logger = new LoggerConfiguration().WriteTo.Console(
-                                                  restrictedToMinimumLevel: LogEventLevel.Debug,
+                                                  LogEventLevel.Debug,
                                                   formatProvider: CultureInfo.CurrentCulture)
                                               .CreateLogger();
 

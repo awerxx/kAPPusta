@@ -1,9 +1,11 @@
 # kAPPusta
- 
+
 Personal app for kapusta (money)
 
 ## Modules
+
 ### Zoya
+
 This module is responsible for managing accounts. Will contain:
 
 - Admin UI to show all accounts

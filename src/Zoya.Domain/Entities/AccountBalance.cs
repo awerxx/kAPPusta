@@ -8,7 +8,7 @@ public sealed class AccountBalance : ValueObject
 
     public AccountBalance(Currency currency) => _currency = currency;
 
-    public decimal Amount { get; } = Decimal.Zero;
+    public decimal Amount { get; } = decimal.Zero;
 
     protected override IEnumerable<object> GetEqualityComponents()
     {

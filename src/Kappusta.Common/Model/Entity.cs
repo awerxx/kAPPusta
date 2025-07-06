@@ -2,9 +2,8 @@
 
 public abstract class Entity<TId> where TId : notnull
 {
-    public TId Id { get; protected set; }
-
     protected Entity(TId id) => Id = id ?? throw new ArgumentNullException(nameof(id));
+    public TId Id { get; protected set; }
 
     public override bool Equals(object? obj)
     {
