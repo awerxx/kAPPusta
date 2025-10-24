@@ -1,5 +1,7 @@
 ﻿using Asp.Versioning;
 using Avvr.Kappusta.Zoya.Api.Endpoints;
+using Microsoft.OpenApi.Models;
+using Scalar.AspNetCore;
 
 namespace Avvr.Kappusta.Zoya.Api.DependencyInjection;
 
@@ -24,8 +26,22 @@ internal static class Endpoints
                     options.SubstituteApiVersionInUrl = true;
                 });
 
-        services.AddSwaggerGen();
-        services.AddEndpointsApiExplorer();
+        services.AddOpenApi(options => options.AddDocumentTransformer((document, context, cancellationToken) =>
+        {
+            document.Info.Version     = _apiVersion.ToString();
+            document.Info.Title       = "Zoya API";
+            document.Info.Description = "This API hmm...";
+            document.Info.Contact = new OpenApiContact
+            {
+                Name = "Me",
+            };
+            document.Info.License = new OpenApiLicense
+            {
+                Name = "MIT License",
+                Url  = new Uri($"https://opensource.org/licenses/MIT", UriKind.Absolute)
+            };
+            return Task.CompletedTask;
+        }));
 
         return services;
     }
@@ -35,18 +51,20 @@ internal static class Endpoints
         var apiVersionSet = app.NewApiVersionSet().HasApiVersion(_apiVersion).ReportApiVersions().Build();
         var group         = app.MapGroup("v{version:apiVersion}").WithApiVersionSet(apiVersionSet);
         if (app.Environment.IsDevelopment())
-            UseSwagger(app);
+            UseApiDocumentation(app);
 
         group.MapAccountEndpoints();
     }
 
-    private static void UseSwagger(WebApplication app)
+    private static void UseApiDocumentation(WebApplication app)
     {
-        app.UseSwagger();
-        app.UseSwaggerUI(options =>
+        app.MapOpenApi();
+        app.MapScalarApiReference(options =>
         {
-            options.SwaggerEndpoint(url: $"/swagger/v{_apiVersion}/swagger.json", name: $"Zoya {_apiVersion}");
-            options.RoutePrefix = "swagger";
+            options.WithTheme(ScalarTheme.Kepler);
+
+            options.HideDarkModeToggle = false;
+            options.HideClientButton   = false;
         });
     }
 }
