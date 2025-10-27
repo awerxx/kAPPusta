@@ -3,5 +3,5 @@
 public static class EnumerableExtensions
 {
     public static IReadOnlyCollection<T> ReadOnly<T>(this IEnumerable<T> enumerable)
-        => enumerable.ToList().AsReadOnly();
+        => enumerable?.ToList().AsReadOnly() ?? Array.Empty<T>().ToList().AsReadOnly();
 }

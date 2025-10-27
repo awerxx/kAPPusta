@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using Avvr.Kappusta.Kappusta.Common.Extensions;
 using Avvr.Kappusta.Zoya.Domain;
 using Avvr.Kappusta.Zoya.Domain.Entities;
 
@@ -19,6 +20,6 @@ public class DummyAccountRepository : IAccountRepository
     {
         await Task.Delay(millisecondsDelay: 100, cancellationToken);
 
-        return _accounts.Select(a => a.Value).ToList().AsReadOnly();
+        return _accounts.Select(a => a.Value).ReadOnly();
     }
 }

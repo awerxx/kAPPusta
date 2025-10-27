@@ -3,9 +3,24 @@ services:
     image: zoya.api
     build:
       context: .
-      dockerfile: Zoya.Api/Dockerfile
+      dockerfile: src/Zoya.Api/Dockerfile
+    depends_on:
+      - redis
   zoya.web.admin:
     image: zoya.web.admin
     build:
       context: .
-      dockerfile: Zoya.Web.Admin/Dockerfile
+      dockerfile: src/Zoya.Web.Admin/Dockerfile
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+volumes:
+  redis_data:
