@@ -7,15 +7,17 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/Zoya.Api/Zoya.Api.csproj", "src/Zoya.Api/"]
-RUN dotnet restore "./src/Zoya.Api/Zoya.Api.csproj"
-COPY . .
-WORKDIR "/src/src/Zoya.Api"
-RUN dotnet build "./Zoya.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+# Copy the whole repository into the build context so project-to-project references
+# (e.g. ../Zoya.Application) are available during dotnet restore.
+COPY . /src
+WORKDIR /src
+RUN dotnet restore "src/Zoya.Api/Zoya.Api.csproj"
+RUN dotnet build "src/Zoya.Api/Zoya.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build /p:GenerateDocumentationFile=true
+
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Zoya.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "src/Zoya.Api/Zoya.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false /p:GenerateDocumentationFile=true
 
 FROM base AS final
 WORKDIR /app
