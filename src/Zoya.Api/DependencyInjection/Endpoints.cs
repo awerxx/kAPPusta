@@ -1,6 +1,6 @@
 ﻿using Asp.Versioning;
 using Avvr.Kappusta.Zoya.Api.Endpoints;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Scalar.AspNetCore;
 
 namespace Avvr.Kappusta.Zoya.Api.DependencyInjection;

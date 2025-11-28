@@ -10,8 +10,7 @@ internal static class AccountsHandler
     public static void MapAccountEndpoints(this RouteGroupBuilder routes)
         => routes.MapGet("accounts", GetAccounts)
                  .WithDescription("Get all user's accounts")
-                 .WithName("GetAccounts")
-                 .WithOpenApi();
+                 .WithName("GetAccounts");
 
     private static async Task<AccountListResponse> GetAccounts(
         [FromServices] IMediator mediator,

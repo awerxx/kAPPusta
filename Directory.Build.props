@@ -8,11 +8,11 @@
 
   <!-- Build -->
   <PropertyGroup>
-    <Version>0.0.1</Version>
-    <TargetFramework>net9.0</TargetFramework>
+    <Version>0.1.0</Version>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <LangVersion>13</LangVersion>
+    <LangVersion>14</LangVersion>
     <AssemblyName>$(AssemblyName)</AssemblyName>
     <RootNamespace>Avvr.Kappusta.$(MSBuildProjectName)</RootNamespace>
   </PropertyGroup>
